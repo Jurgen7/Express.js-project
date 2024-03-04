@@ -1,9 +1,8 @@
 const express = require("express")
+const { getContacts, createContacts } = require("../controllers/contactController")
 
 const router = express.Router()
 
-router.route("/").get((req, res) => {
-    res.status(200).json({ message: "Get all contacts" })
-})
+router.route("/").get(getContacts).post(createContacts)
 
 module.exports = router
